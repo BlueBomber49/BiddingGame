@@ -1,3 +1,5 @@
+package SharedGameAssets;
+
 public class Gem {
     private int value;
     public Gem(int value){

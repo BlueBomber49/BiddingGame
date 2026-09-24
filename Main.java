@@ -1,3 +1,5 @@
+import SharedGameAssets.*;
+
 public class Main {
 
     public static void main(String[] args){

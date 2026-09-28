@@ -1,4 +1,4 @@
-package SharedGameAssets;
+package com.example.biddinggame.gamepieces;
 
 public class ShapeCard {
     public enum Color {RED, BLUE, GREEN}

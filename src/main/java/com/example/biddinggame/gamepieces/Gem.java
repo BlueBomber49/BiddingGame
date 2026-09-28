@@ -1,4 +1,4 @@
-package SharedGameAssets;
+package com.example.biddinggame.gamepieces;
 
 public class Gem {
     private int value;

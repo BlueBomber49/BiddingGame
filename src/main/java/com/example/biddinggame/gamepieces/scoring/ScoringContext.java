@@ -1,9 +1,9 @@
-package SharedGameAssets.Scoring;
+package com.example.biddinggame.gamepieces.scoring;
 
 import java.util.List;
 
-import SharedGameAssets.GemBag;
-import SharedGameAssets.ShapeCard;
+import com.example.biddinggame.gamepieces.GemBag;
+import com.example.biddinggame.gamepieces.ShapeCard;
 
 public class ScoringContext {
     List<ShapeCard> playerCards;

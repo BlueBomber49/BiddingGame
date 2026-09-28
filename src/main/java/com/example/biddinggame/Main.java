@@ -1,4 +1,6 @@
-import SharedGameAssets.*;
+package com.example.biddinggame;
+
+import com.example.biddinggame.gamepieces.GemBag;
 
 public class Main {
 

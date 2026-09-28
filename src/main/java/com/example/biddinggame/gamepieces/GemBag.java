@@ -1,4 +1,4 @@
-package SharedGameAssets;
+package com.example.biddinggame.gamepieces;
 
 import java.util.ArrayList;
 import java.util.Collections;

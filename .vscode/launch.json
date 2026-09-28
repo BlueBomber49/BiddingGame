@@ -8,14 +8,14 @@
       "type": "java",
       "name": "Main",
       "request": "launch",
-      "mainClass": "Main",
+      "mainClass": "com.example.biddinggame.Main",
       "projectName": "Bidding Game_6adfdc81"
     },
     {
       "type": "java",
       "name": "Launch Java Program",
       "request": "launch",
-      "mainClass": "Main.java"
+      "mainClass": "com.example.biddinggame.Main"
     }
   ]
 }

@@ -1,4 +1,4 @@
-package SharedGameAssets;
+package com.example.biddinggame.gamepieces;
 
 public class ShapeCardDeck extends RandomAccessContainer<ShapeCard>{
 

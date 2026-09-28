@@ -1,4 +1,4 @@
-package SharedGameAssets;
+package com.example.biddinggame.gamepieces;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +33,10 @@ public abstract class RandomAccessContainer<T> {
             }
         }
         return itemsList;
+    }
+
+    public List<T> getAllItems(){
+        return this.items;
     }
 
     public void addItem(T item){

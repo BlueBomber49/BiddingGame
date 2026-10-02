@@ -14,10 +14,12 @@ public class BiddingArea {
     Map<ShapeCard, List<Gem>> playerBids;
     Map<ShapeCard, List<Gem>> opponentBids;
 
-    public BiddingArea(){
-        cardsForPurchase = new ArrayList<>();
-        playerBids = new HashMap<>();
-        opponentBids = new HashMap<>();
+    public BiddingArea(Player player, Player opponent){
+        this.cardsForPurchase = new ArrayList<>();
+        this.playerBids = new HashMap<>();
+        this.opponentBids = new HashMap<>();
+        this.player = player;
+        this.opponent = opponent;
     }
 
     public void setup(ShapeCardDeck deck){
@@ -29,9 +31,18 @@ public class BiddingArea {
         }
     }
 
+    public void bid(Player player, ShapeCard card, List<Gem> bid){
+        if(player == this.player){
+            playerBids.put(card, bid);
+        }
+        else if(player == this.opponent){
+            opponentBids.put(card, bid);
+        }
+    }
+
     public void resolve(){
         for(int i=0; i<3; i++){
-            ShapeCard card = cardsForPurchase.get(0);
+            ShapeCard card = cardsForPurchase.get(i);
             int playerBid = playerBids.get(card).stream().mapToInt(gem -> gem.getValue()).sum();
             int opponentBid = opponentBids.get(card).stream().mapToInt(gem -> gem.getValue()).sum();
             if(playerBid > opponentBid){

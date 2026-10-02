@@ -1,5 +1,7 @@
 package com.example.biddinggame.gamepieces;
 
+import java.util.List;
+
 public class ShapeCardDeck extends RandomAccessContainer<ShapeCard>{
 
     public ShapeCardDeck(){
@@ -10,6 +12,10 @@ public class ShapeCardDeck extends RandomAccessContainer<ShapeCard>{
                 }
             }
         }
+    }
+
+    public ShapeCardDeck(List<ShapeCard> cardList){
+        this.addItems(cardList);
     }
     
 }

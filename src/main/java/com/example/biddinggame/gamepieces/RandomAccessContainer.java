@@ -11,6 +11,7 @@ public abstract class RandomAccessContainer<T> {
     }
 
     public T getItem(){
+        //Returns null if empty
         if(this.items.size() == 0){
             return null;
         } 
@@ -22,6 +23,7 @@ public abstract class RandomAccessContainer<T> {
     }
 
     public List<T> getNItems(int n){
+        //Gets up to N items from the list
         List<T> itemsList = new ArrayList<>();
         for(int i=0; i<n; i++){
             T g = getItem();

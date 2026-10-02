@@ -15,4 +15,19 @@ public class Gem {
         return "Value: " + this.value;
     }
 
+    @Override 
+    public boolean equals(Object o){
+        if(this == o) {
+            return true;
+        }
+        if(!(o instanceof Gem gem)){
+            return false;
+        }
+        return this.value == gem.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(value);
+}
 }

@@ -1,5 +1,6 @@
 package com.example.biddinggame.gamepieces.scoring;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class IdentityCardDeck extends RandomAccessContainer<IdentityCard>{
 
     public List<IdentityCard> uniqueCards;
 
-    private List<IdentityCard> allCards = List.of(
+    private List<IdentityCard> allCards = new ArrayList<IdentityCard>(List.of(
         new IdentityCard("The Painter", ScoringRules::scorePainter, "Scores 3 points for each set of 3 differently colored cards"),
         new IdentityCard("The Vegan", ScoringRules::scoreVegan, "Scores 1 point for every 2 green shapes, and 2 points for having more green shapes than your opponent"),
         new IdentityCard("The Collector", ScoringRules::scoreCollector, "Scores 1 point for pairs of cards (same card, different colors), and 3 points for a complete set"),
@@ -21,13 +22,14 @@ public class IdentityCardDeck extends RandomAccessContainer<IdentityCard>{
         new IdentityCard("The Building Contractor", ScoringRules::scoreBuildingContractor, "Scores 1 point for each pair of square and triangle, loses 1 point for each lone square or triangle"),
         new IdentityCard("Even Steven", ScoringRules::scoreEvenSteven, "Scores 2 points for each even card, loses 1 point for each odd card"),
         new IdentityCard("The Were-Vampire", ScoringRules::scoreWereVampire, "Scores 3 points for having more red shapes than your opponent and...?")
-    );
+    ));
 
     public IdentityCardDeck(){
         Collections.shuffle(allCards);
-        this.addItems(allCards.subList(0, 5));
-        this.uniqueCards.addAll(allCards.subList(0, 5));
-        this.addItems(allCards.subList(0, 5));
+        this.uniqueCards = new ArrayList<>();
+        this.addItems(allCards.subList(0, 6));
+        this.uniqueCards.addAll(allCards.subList(0, 6));
+        this.addItems(allCards.subList(0, 6));
     }
 
     public List<IdentityCard> getUniqueCards(){

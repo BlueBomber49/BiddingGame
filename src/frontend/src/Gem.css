@@ -1,0 +1,74 @@
+.gem {
+  --gem: #c94a46;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  flex: 0 0 76px;
+  padding: 0;
+  border: 2px solid #171916;
+  border-radius: 50%;
+  color: #fffaf2;
+  background: var(--gem);
+  cursor: grab;
+  touch-action: manipulation;
+  transition: filter 160ms ease, outline-color 160ms ease;
+  user-select: none;
+}
+
+.gem:hover {
+  filter: brightness(1.08);
+}
+
+.gem:active {
+  cursor: grabbing;
+}
+
+.gem:focus-visible {
+  outline: 3px solid #183f46;
+  outline-offset: 5px;
+}
+
+.gem--selected {
+  outline: 3px solid #183f46;
+  outline-offset: 5px;
+}
+
+.gem-value {
+  position: relative;
+  z-index: 1;
+  font-family: var(--heading);
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.gem--sapphire {
+  --gem: #397a9c;
+}
+
+.gem--citrine {
+  --gem: #d39a32;
+}
+
+.gem--jade {
+  --gem: #3f8c69;
+}
+
+.gem--compact {
+  width: 56px;
+  height: 56px;
+  flex-basis: 56px;
+  cursor: default;
+}
+
+.gem--compact .gem-value {
+  font-size: 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gem {
+    transition: none;
+  }
+}

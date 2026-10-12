@@ -6,6 +6,7 @@ function Game({ playerName, onNavigate }: ScreenProps) {
       <h1>Gameplay</h1>
       <h2>{playerName}, you're losing</h2>
       <button onClick={() => onNavigate(gameStates.MENU)}>To Menu</button>
+      <button onClick={() => fetch("/api/game", { method: "PUT" })}>Hit the endpoint</button>
     </main>
   );
 }

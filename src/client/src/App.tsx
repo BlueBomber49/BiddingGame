@@ -4,11 +4,13 @@ import { gameStates } from "./gameStates";
 import Game from "./Game";
 import CharacterSelect from "./CharacterSelect";
 import { MainMenu } from "./MainMenu";
+import { ServerFacade } from "./serverfacade/serverFacade";
 
 function App() {
   const [playerName, setPlayerName] = useState("Player 1");
   const [gameState, setGameState] = useState<gameStates>(gameStates.MENU);
   const navigateTo = (screen: gameStates) => setGameState(screen);
+  const serverFacade: ServerFacade = new ServerFacade()
 
   if (gameState == gameStates.MENU)
     return (
@@ -16,12 +18,13 @@ function App() {
         onNavigate={navigateTo}
         onNameChange={setPlayerName}
         playerName={playerName}
+        serverFacade={serverFacade}
       />
     );
   else if (gameState == gameStates.GAME) {
-    return <Game onNavigate={navigateTo} playerName={playerName} />;
+    return <Game onNavigate={navigateTo} playerName={playerName} serverFacade={serverFacade} />;
   } else if (gameState == gameStates.CHARACTER_SELECT) {
-    return <CharacterSelect onNavigate={navigateTo} playerName={playerName} />;
+    return <CharacterSelect onNavigate={navigateTo} playerName={playerName} serverFacade={serverFacade}/>;
   } else {
     return <h1>IDK how you got here, but congrats I guess?</h1>;
   }

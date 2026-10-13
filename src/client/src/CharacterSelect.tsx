@@ -1,6 +1,6 @@
 import { gameStates, type ScreenProps } from "./gameStates";
 
-function CharacterSelect({ playerName, onNavigate }: ScreenProps) {
+function CharacterSelect({ playerName, onNavigate, serverFacade }: ScreenProps) {
   return (
     <main className="character-select-screen">
       <h1>Character Select</h1>

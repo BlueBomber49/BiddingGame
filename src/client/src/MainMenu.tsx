@@ -7,7 +7,7 @@ interface MainMenuProps extends ScreenProps {
 export function MainMenu({
   playerName,
   onNameChange,
-  onNavigate,
+  onNavigate, serverFacade
 }: MainMenuProps) {
   return (
     <main className="main-menu">

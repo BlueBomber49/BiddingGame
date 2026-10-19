@@ -1,5 +1,6 @@
 package com.example.biddinggame;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -30,8 +31,10 @@ public class GameTest {
         this.card3 = new ShapeCard(ShapeCard.Shape.TRIANGLE, ShapeCard.Color.GREEN, ShapeCard.Number.ONE);
         ShapeCardDeck shapeDeck = new ShapeCardDeck(new ArrayList<>(List.of(card1, card2, card3)));
         this.game = new Game("Test Game", shapeDeck);
-        this.p1 = this.game.player;
-        this.p2 = this.game.opponent;
+        this.p1 = new Player();
+        this.p2 = new Player();
+        this.game.addPlayer(p1);
+        this.game.addPlayer(p2);
         this.game.setupBiddingArea();
     }
     @Test 
@@ -45,7 +48,15 @@ public class GameTest {
         assertTrue(this.p2.ownedCards.contains(this.card3));
         assertTrue(this.game.shapeDiscard.getAllItems().contains(card2));
         assertTrue(this.game.roundCount == 2);
+    }
 
+    @Test
+    public void testBlankGameNamesUseFallback(){
+        Game gameWithEmptyName = new Game(new String(""));
+        Game gameWithBlankName = new Game("   ");
+
+        assertEquals("Unnamed Game " + gameWithEmptyName.id, gameWithEmptyName.name);
+        assertEquals("Unnamed Game " + gameWithBlankName.id, gameWithBlankName.name);
     }
     
 }

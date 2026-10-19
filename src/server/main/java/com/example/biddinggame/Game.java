@@ -10,8 +10,8 @@ import com.example.biddinggame.gamezones.Bid;
 import com.example.biddinggame.gamezones.BiddingArea;
 
 public class Game {
-    public Player player;
-    public Player opponent;
+    public Player player1;
+    public Player player2;
     public IdentityCardDeck identityCards;
     public ShapeCardDeck shapeCards;
     public ShapeCardDeck shapeDiscard;
@@ -26,9 +26,7 @@ public class Game {
         this.identityCards = new IdentityCardDeck();
         this.shapeCards = new ShapeCardDeck();
         this.shapeDiscard = new ShapeCardDeck(new ArrayList<>());
-        this.player = new Player();
-        this.opponent = new Player();
-        this.name = name == "" ?  "Unnamed Game " + id : name;
+        this.name = name == null || name.isBlank() ? "Unnamed Game " + id : name;
     }
 
     public Game(String name, ShapeCardDeck shapeCards){
@@ -36,17 +34,27 @@ public class Game {
         this.identityCards = new IdentityCardDeck();
         this.shapeCards = shapeCards;
         this.shapeDiscard = new ShapeCardDeck(new ArrayList<>());
-        this.player = new Player();
-        this.opponent = new Player();
-        this.name = name == "" ?  "Unnamed Game " + id : name;
+        this.name = name == null || name.isBlank() ? "Unnamed Game " + id : name;
     }
 
     public void setupIdentities(){
 
     }
 
+    public void addPlayer(Player player){
+        if(this.player1 == null){
+            this.player1 = player;
+        }
+        else if(this.player2 == null){
+            this.player2 = player;
+        }
+        else{
+            throw new IllegalStateException("Game already has two players");
+        }
+    }
+
     public void setupBiddingArea(){
-        this.biddingArea = new BiddingArea(this.player, this.opponent);
+        this.biddingArea = new BiddingArea(this.player1, this.player2);
         this.biddingArea.setup(shapeCards);
         this.roundCount = 1;
     }

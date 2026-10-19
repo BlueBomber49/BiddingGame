@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.biddinggame.gamecomponents.RandomAccessContainer;
-
 public class RandomAccessContainerTest {
 
     private static class TestContainer<T> extends RandomAccessContainer<T> {

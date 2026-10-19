@@ -13,8 +13,6 @@ import com.example.biddinggame.gamecomponents.Gem;
 import com.example.biddinggame.gamecomponents.Player;
 import com.example.biddinggame.gamecomponents.ShapeCard;
 import com.example.biddinggame.gamecomponents.ShapeCardDeck;
-import com.example.biddinggame.gamezones.Bid;
-import com.example.biddinggame.gamezones.BiddingArea;
 
 public class BiddingAreaTest {
     //Test that it accurately divvys out cards based on bids

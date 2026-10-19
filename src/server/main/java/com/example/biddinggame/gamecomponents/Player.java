@@ -12,6 +12,7 @@ public class Player {
     public IdentityCard identity;
     public GemBag gemBag;
     public GemBag discardedGems;
+    public String name;
 
     public Player(){
         this.ownedCards = new ArrayList<>();
@@ -19,6 +20,16 @@ public class Player {
         this.discardedGems = new GemBag(false);
         this.identity = null;
         this.id = nextId++;
+        this.name = "Player " + this.id;
+    }
+
+    public Player(String name){
+        this.ownedCards = new ArrayList<>();
+        this.gemBag = new GemBag(true);
+        this.discardedGems = new GemBag(false);
+        this.identity = null;
+        this.id = nextId++;
+        this.name = name;
     }
 
     public void addCard(ShapeCard card){
@@ -35,6 +46,10 @@ public class Player {
 
     public void discardGems(List<Gem> gems){
         this.discardedGems.addItems(gems);
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     @Override 

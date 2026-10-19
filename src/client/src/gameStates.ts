@@ -1,6 +1,7 @@
 import type { ServerFacade } from "./serverfacade/serverFacade";
 
 export enum gameStates {
+  PLAYER_CREATION,
   MENU,
   CHARACTER_SELECT,
   GAME,

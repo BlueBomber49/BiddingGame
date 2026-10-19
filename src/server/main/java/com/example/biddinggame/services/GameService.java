@@ -1,4 +1,4 @@
-package com.example.biddinggame.gameservice;
+package com.example.biddinggame.services;
 
 import java.util.List;
 
@@ -19,24 +19,13 @@ public class GameService {
         return game.id;
     }
 
-    public void joinGame(int gameId, int playerId){ //TODO: Reexamine Game being made with players
+    public void joinGame(int gameId, int playerId){
         Game gameToJoin = this.db.getGame(gameId);
         if(gameToJoin == null){
             //throw Error("Invalid Game Id");
             return;
         }
-        else if(gameToJoin.player == null){
-            Player p = new Player();  //Do we need a playerService?  Auth? This isn't going to work as is
-            gameToJoin.player = p;
-        }
-        else if(gameToJoin.opponent == null){
-            Player p = new Player();
-            gameToJoin.opponent = p;
-        }
-        else{
-            //Throw error("Game is already full")
-            return;
-        }
+        gameToJoin.addPlayer(new Player());
     }
 
     public List<Game> getGames(){

@@ -6,9 +6,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.example.biddinggame.gamecomponents.scoring.IdentityCard;
-import com.example.biddinggame.gamecomponents.scoring.IdentityCardDeck;
-
 public class IdentityCardDeckTest {
 
     @Test
